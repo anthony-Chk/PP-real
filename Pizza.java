@@ -1,22 +1,40 @@
 public class Pizza {
-    public Pizza(char siz, char cru, int m1, int m2, int m3, int t1, int t2, int t3, int t4, int t5, int t6, int n) {
-        char size = siz;
-        char crust = cru;
-        int ham = m1;
-        int pepperoni = m2;
-        int sausage = m3;
-        int cheese = t1;
-        int pepper = t2;
-        int onion = t3;
-        int tomato = t4;
-        int mushroom = t5;
-        int pineapple = t6;
-        int quantity = n;
+    char size;
+    char crust;
+    int meat1;
+    int meat2;
+    int meat3;
+    int topping1;
+    int topping2;
+    int topping3;
+    int topping4;
+    int topping5;
+    int topping6;
+    int quantity;
 
-        System.out.println("size: " + size + ", " + "crust: " + crust);
-        System.out.println("meat: " + ham + ", " + pepperoni + ", " + sausage);
-        System.out.println("toppings: " + cheese + ", " + pepper + ", " + onion + ", " + tomato + ", ");
-        System.out.print(mushroom + ", " + pineapple + ", ");
-        System.out.println("quantity: " + quantity);
+    public Pizza(char siz, char cru, int m1, int m2, int m3, int t1, int t2, int t3, int t4, int t5, int t6, int n) {
+        size = siz;
+        crust = cru;
+        meat1 = m1;
+        meat2 = m2;
+        meat3 = m3;
+        topping1 = t1;
+        topping2 = t2;
+        topping3 = t3;
+        topping4 = t4;
+        topping5 = t5;
+        topping6 = t6;
+        quantity = n;
+
+
     }
+    public String toString() {
+        return "size: " + size + ", " + "crust: " + crust + "\n" +
+                "meat: " + meat1 + ", " + meat2 + ", " + meat3 + "\n" +
+                "toppings: " + topping1 + ", " + topping2 + ", " + topping3 + ", " + topping4 + "," +
+                    topping5 + ", " + topping6 + ", \n" +
+                "quantity: " + quantity;
+    }
+
+
 }
