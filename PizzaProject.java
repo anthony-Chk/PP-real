@@ -15,31 +15,33 @@ public class PizzaProject extends JFrame {
     private JButton sidesButton;
     private JButton beveragesButton;
     private JPanel pizzaPanel;
-    private JButton sizeSelection;
-    private JButton crustSelection;
-    private JRadioButton panRadioButton;
-    private JRadioButton regularRButton;
-    private JRadioButton smallRButton;
-    private JRadioButton largeRButton;
-    private JRadioButton thinRButton;
+    private JButton Breadsticks;
     private JButton checkOutButton;
-    private JRadioButton mediumRButton;
+    private JTextArea quantity2;
+    private JRadioButton marinara1;
+    private JButton plusquantity2;
+    private JButton minusquantity2;
+    private JButton BreakstickBites;
+    private JButton BCCC;
     private JPanel quantityTab;
-    private JTextArea quantityTextField;
     private JLabel quantityText;
-    private JRadioButton m1RButton;
-    private JRadioButton m2RButton;
-    private JRadioButton m3RButton;
-    private JRadioButton t1RButton;
-    private JRadioButton t2RButton;
-    private JRadioButton t3RButton;
-    private JRadioButton t4RButton;
-    private JRadioButton t5RButton;
-    private JRadioButton t6RButton;
-    private JButton addQuantityButton;
-    private JButton minusQuantityButton;
+    private JLabel breadstickImage;
+    private JLabel BreadbitesImage;
+    private JLabel Cookie;
+    private JButton P1;
+    private JButton P2;
+    private JButton P3;
+    private JRadioButton marinara2;
+    private JButton Checkout;
+    private JTextArea quantity1;
+    private JTextArea quantity3;
+    private JButton minusquantity1;
+    private JButton plusquantity1;
+    private JButton minusquantity3;
+    private JButton plusquantity3;
 
-    static ArrayList<Pizza> userPizzaOrder = new ArrayList<Pizza>();
+
+
 
     public PizzaProject(String name) {
         super(name);
@@ -55,116 +57,47 @@ public class PizzaProject extends JFrame {
 
 
         //makes quantity text field and buttons work
-        final int[] quantity = {1};
-        this.quantityTextField.setText(String.valueOf(quantity[0]));
-        this.minusQuantityButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                quantity[0] = quantity[0] -1;
-                if (quantity[0]<1) {
-                    quantity[0] = 1;
-                }
-                quantityTextField.setText(String.valueOf(quantity[0]));
-            }
-        });
-        this.addQuantityButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                quantity[0] = quantity[0] +1;
-                quantityTextField.setText(String.valueOf(quantity[0]));
-            }
-        });
 
 
-        ButtonGroup sizeGroup = new ButtonGroup();
-            sizeGroup.add(smallRButton);
-            sizeGroup.add(mediumRButton);
-            sizeGroup.add(largeRButton);
-        ButtonGroup crustGroup = new ButtonGroup();
-            crustGroup.add(thinRButton);
-            crustGroup.add(regularRButton);
-            crustGroup.add(panRadioButton);
 
 
-        checkOutButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                userPizzaOrder.add(saveOrder(quantity));
 
-                for (int i=0; i<userPizzaOrder.size(); i++) {
-                    System.out.println(userPizzaOrder.get(i));
-                }
-            }
-        });
+
+
     }
-    public Pizza saveOrder(int[] quantity) {
-        //variables
-        char size='n';
-        char crust='n';
-        int m1=0;
-        int m2=0;
-        int m3=0;
-        int t1=0;
-        int t2=0;
-        int t3=0;
-        int t4=0;
-        int t5=0;
-        int t6=0;
-        int n = quantity[0];
+    public Sides saveOrder(int[] quantity)
+    {
+        int bs=0;
+        int bb=0;
+        int cc=0;
+        int m=0;
 
-        //Button Functionality
-        if (smallRButton.isSelected()) {
-            size = 's';
+        if(minusquantity1.isSelected()){
+            bs=-1;
         }
-        else if (mediumRButton.isSelected()) {
-            size ='m';
+        else if(plusquantity1.isSelected()){
+            bs=+1;
         }
-        else if (largeRButton.isSelected()) {
-            size = 'l';
+        else if(minusquantity2.isSelected()){
+            bb=-1;
         }
-        else {
-            size = 'n';
+        else if(plusquantity2.isSelected()){
+            bb=+1;
         }
-        if (thinRButton.isSelected()) {
-            crust = 't';
+        else if(minusquantity3.isSelected()){
+            cc=-1;
         }
-        else if (regularRButton.isSelected()) {
-            crust = 'r';
+        else if(plusquantity3.isSelected()){
+            cc=+1;
         }
-        else if (panRadioButton.isSelected()) {
-            crust = 'p';
+        else if(marinara1.isSelected()){
+            m=+1;
         }
-        else {
-            crust = 'n';
-        }
-        if (m1RButton.isSelected()) {
-            m1 = 1;
-        }
-        if (m2RButton.isSelected()) {
-            m2 = 1;
-        }
-        if (m3RButton.isSelected()) {
-            m3 = 1;
-        }
-        if (t1RButton.isSelected()) {
-            t1 = 1;
-        }
-        if (t2RButton.isSelected()) {
-            t2 = 1;
-        }
-        if (t3RButton.isSelected()) {
-            t3 = 1;
-        }
-        if (t4RButton.isSelected()) {
-            t4= 1;
-        }
-        if (t5RButton.isSelected()) {
-            t5 = 1;
-        }
-        if (t6RButton.isSelected()) {
-            t6 = 1;
+        else if(marinara2.isSelected()){
+            m=+1;
         }
 
-        return new Pizza(size, crust, m1,m2,m3,t1,t2,t3,t4,t5,t6,n);
+        return new Sides(bs, bb, cc, m);
     }
 
 
